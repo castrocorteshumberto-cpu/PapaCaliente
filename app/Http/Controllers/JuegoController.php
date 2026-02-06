@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Registro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+
 
 class JuegoController extends Controller
 {
-    // Solo alumno 1 usa este método
     public function iniciar()
     {
         $numero = 1;
