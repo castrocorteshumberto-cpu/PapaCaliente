@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('registros', function (Blueprint $table) {
             $table->id();
             $table->integer('numero');
+            $table->string('alumno')->nullable();
             $table->timestamps();
         });
     }

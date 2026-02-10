@@ -10,10 +10,12 @@ class JuegoController extends Controller
 {
     public function recibir(Request $request)
     {
-        $numero = $request->input('numero') + 1;
+        $numeroRecibido = $request->input('numero');
+        $numero = $numeroRecibido + 1;
 
         Registro::create([
-            'numero' => $numero
+            'numero' => $numero,
+            'alumno' => env('ALUMNO_NOMBRE')
         ]);
 
         $next = env('NEXT_SERVER');
@@ -25,7 +27,8 @@ class JuegoController extends Controller
         } catch (\Exception $e) {
             return response()->json([
                 'mensaje' => 'Ganador',
-                'ultimo_numero' => $numero
+                'ultimo_numero' => $numero,
+                'alumno' => env('ALUMNO_NOMBRE')
             ]);
         }
 
@@ -33,4 +36,4 @@ class JuegoController extends Controller
             'numero_registrado' => $numero
         ]);
     }
-}
+}    
